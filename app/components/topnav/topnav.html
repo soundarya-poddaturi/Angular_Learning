@@ -1,0 +1,39 @@
+<div ng-controller="TopNavController">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <!-- Center Brand -->
+      <div class="mx-auto text-center">
+        <span class="navbar-brand mb-0 h4">MyApp</span>
+      </div>
+
+      <!-- Right FA Button -->
+      <div class="ms-auto">
+        <button class="btn btn-outline-light rounded-circle" ng-click="openModal()">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ Modal Backdrop -->
+  <div class="modal-backdrop fade show" ng-show="showModal"></div>
+
+  <!-- ✅ Modal -->
+  <div class="modal fade show d-block" ng-show="showModal" tabindex="-1" role="dialog" aria-labelledby="plusModalLabel" aria-modal="true" style="background: rgba(0,0,0,0.3);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="plusModalLabel">Add Something</h5>
+          <button type="button" class="btn-close" ng-click="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          You clicked the + button. Add your content here!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" ng-click="closeModal()">Close</button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

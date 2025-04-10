@@ -1,5 +1,46 @@
-<div class="sidebar">
-  <ul>
-    <li ng-repeat="item in items">{{ item }}</li>
+<div ng-controller="SidebarController">
+<div
+  class="d-flex flex-column p-3 text-white bg-dark"
+  ng-style="{ width: service.isCollapsed ? '80px' : '250px' }"
+  style="height: 100vh; position: fixed; transition: width 0.3s;"
+>
+  <a
+    href="#"
+    class="d-flex align-items-center  justify-content-center text-white text-decoration-none p-2 "
+    ng-click="toggle()"
+  >
+  <span>
+    <span ng-if="!service.isCollapsed">DASHBOARD</span>
+    <i class="fa  fa-bars" ng-if="service.isCollapsed"></i>
+  </span>
+  
+  </a>
+  <hr class="border-secondary" />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li
+      class="nav-item py-3"
+      ng-repeat="item in items"
+    >
+    <a
+    href="#!{{item.path}}"
+    class="nav-link text-white d-flex align-items-center justify-content-start p-3"
+    ng-class="{ 'bg-danger': item.path === currentPath }"
+    style="transition: background 0.2s;"
+  >
+    <i
+      class="{{item.icon}} "
+      ng-class="{
+        'mx-auto d-block text-center': service.isCollapsed,
+        'me-3': !service.isCollapsed
+      }"
+      style="min-width: 20px; font-size: 1.2rem;"
+    ></i>
+  
+    <!-- Text only when not collapsed -->
+    <span ng-if="!service.isCollapsed">{{ item.name }}</span>
+  </a>
+  
+    </li>
   </ul>
+</div>
 </div>

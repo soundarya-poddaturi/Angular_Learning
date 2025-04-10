@@ -6,3 +6,7 @@ body {
   padding: 10px;
   width: 200px;
 }
+.main-wrapper {
+  transition: margin-left 0.3s ease;
+}
+
