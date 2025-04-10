@@ -23,11 +23,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="plusModalLabel">Add Something</h5>
+          <h5 class="modal-title" id="plusModalLabel">Create Terminals</h5>
           <button type="button" class="btn-close" ng-click="closeModal()" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          You clicked the + button. Add your content here!
+          <form>
+            <div ng-repeat="title in TerminalController.fields">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">{{title}}</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" ng-click="closeModal()">Close</button>
